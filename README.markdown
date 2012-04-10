@@ -79,6 +79,12 @@ To git@heroku.com:smooth-mist-1976.git
 
 https://github.com/bkutil/bootstrap-theme
 
+## Customize
+
+``` bash
+$ vim sass/custom/_styles.scss
+```
+
 ## License
 (The MIT License)
 
