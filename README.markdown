@@ -10,6 +10,11 @@ rake preview
 
 http://jasongarber.com/blog/2012/01/10/deploying-octopress-to-heroku-with-a-custom-buildpack/
 
+``` bash
+heroku create --stack cedar --buildpack git://github.com/jgarber/heroku-buildpack-ruby-octopress.git
+git push heroku master
+```
+
 
 ## Twitter Bootstrap Theme
 
