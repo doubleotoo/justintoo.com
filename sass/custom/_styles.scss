@@ -15,6 +15,44 @@ blockquote {
 
 h3 {
   margin-top: 2em;
-  border-bottom: 4px solid rgba($text-color-light, .5);
+  border-bottom: 2px solid rgba($text-color-light, .5);
+}
+
+/*img*/.image-right {
+    float: right;
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+/*img*/.image-left {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 25px;
+}
+
+.framed {
+    -moz-border-radius: 0.3em 0.3em 0.3em 0.3em;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    -moz-box-sizing: border-box;
+    border: 0.5em solid white;
+}
+
+/* TODO: for hover */
+.framed-dark {
+    -moz-border-radius: 0.3em 0.3em 0.3em 0.3em;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+    -moz-box-sizing: border-box;
+    border: 0.5em solid white;
+}
+
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: 54px 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
 }
 

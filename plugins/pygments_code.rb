@@ -3,6 +3,7 @@ require 'uri'
 require 'fileutils'
 require 'digest/md5'
 
+PYGMENTIZE_URL = URI.parse('http://pygmentize.herokuapp.com/')
 PYGMENTS_CACHE_DIR = File.expand_path('../../.pygments-cache', __FILE__)
 FileUtils.mkdir_p(PYGMENTS_CACHE_DIR)
 

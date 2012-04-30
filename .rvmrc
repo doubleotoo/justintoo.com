@@ -1,7 +1,7 @@
 #!/usr/bin/env bash -x
 
 ruby_string="1.9.2-p318"
-gemset_name="justintoo.com"
+gemset_name="blog"
 
 if rvm list strings | grep -q "${ruby_string}" ; then
 
