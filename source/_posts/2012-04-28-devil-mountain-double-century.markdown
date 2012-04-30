@@ -371,7 +371,7 @@ One <em>revolution</em> at a time.</p>
 
 ### Pictures
 
-View all the pictures <a href="https://plus.google.com/photos/113607174221973452906/albums/5734369780570416145" target="_blank">here</a>
+View all the pictures <a href="https://plus.google.com/photos/113607174221973452906/albums/5734369780570416145" target="_blank">here</a> and <a href="https://plus.google.com/photos/113607174221973452906/albums/5734369780570416145" target="_blank">here</a>.
 
 <embed class="framed" style="float: left;" type="application/x-shockwave-flash" src="https://picasaweb.google.com/s/c/bin/slideshow.swf" width="374" height="288" flashvars="host=picasaweb.google.com&hl=en_US&feat=flashalbum&RGB=0x000000&feed=https%3A%2F%2Fpicasaweb.google.com%2Fdata%2Ffeed%2Fapi%2Fuser%2F113607174221973452906%2Falbumid%2F5734369780570416145%3Falt%3Drss%26kind%3Dphoto%26hl%3Den_US" pluginspage="http://www.macromedia.com/go/getflashplayer"></embed>
 
