@@ -365,6 +365,8 @@ One <em>revolution</em> at a time.</p>
   });
 </script>
 
+<p></p>
+
 <p><em>And to God be the Glory</em>.</p>
 
 <hr class="soften" />
