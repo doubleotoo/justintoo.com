@@ -112,7 +112,7 @@ call an <em>addiction</em>.</p>
 <p></p>
 <p>And although I work close by to this area, I've never really taken the time to explore the <em>open country</em>. I felt like a happy little boy, riding through the hills, marveling at the ginormous wind mills.</p>
 
-<p>The <em>mills</em> weren't spinning, though. <em>But thank goodness!</em> (Because spinning wind mill <em>equals</em> wind. And wind usually <em>equals</em> head-wind. And I <em>shudderr</em> at that thought.)</p>
+<p>The <em>mills</em> weren't spinning, though. <em>But thank goodness!</em> (Because spinning wind mill <em>equals</em> wind. And wind usually <em>equals</em> head-wind. And I <em>shudder</em> at that thought.)</p>
 
 <p>After descending back into Livermore, I continued on <em>Tesla Road</em>, made the left turn onto <em>Mines Road</em>, took a quick bathroom break and ate some snacks at <u>Rest Stop #3</u>.</p>
 
@@ -322,7 +322,9 @@ This is the brave, daring, macho, and awesome <a href="http://www.ucdtri.com/" t
 <p></p>
 <p>Or should I say, <em>#136 and 10 years old</em>.</p>
 
-<p><em>What's <u>your</u> excuse?</em></p>
+<p><em>So.</em></p>
+
+<p><em>What's your excuse?</em></p>
 
 <p>Let me ask that again.</p>
 
@@ -352,7 +354,7 @@ This is the brave, daring, macho, and awesome <a href="http://www.ucdtri.com/" t
 
 <p>Another adventure on planet Earth.</p>
 
-<p>Dominating.</p>
+<p><em>Dominating</em>.</p>
 
 One <em>revolution</em> at a time.</p>
 
@@ -363,7 +365,7 @@ One <em>revolution</em> at a time.</p>
   });
 </script>
 
-<em>To God be the Glory</em>.
+<p><em>And to God be the Glory</em></p>.
 
 <hr class="soften" />
 
