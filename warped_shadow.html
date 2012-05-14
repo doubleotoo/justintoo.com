@@ -1,0 +1,779 @@
+<html>
+  <head>
+    <title>Warped shadow</title>
+
+    <style>
+      body {
+          padding: 0;
+          margin: 0;
+
+          font-family: 'Open Sans', Times, 'Times New Roman', serif;
+          line-height: 150%;
+          font-size: 12pt;
+
+
+          background: #fff;
+          color: #222;
+          overflow-y: scroll!important;
+          background: #aaa;
+          background: -moz-linear-gradient(left, rgba(170, 170, 170, 1) 0, rgba(238, 238, 238, 1) 15%, rgba(238, 238, 238, 1) 85%, rgba(170, 170, 170, 1) 100%);
+          background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(170, 170, 170, 1)), color-stop(15%, rgba(238, 238, 238, 1)), color-stop(85%, rgba(238, 238, 238, 1)), color-stop(100%, rgba(170, 170, 170, 1)));
+          background: -webkit-linear-gradient(left, rgba(170, 170, 170, 1) 0, rgba(238, 238, 238, 1) 15%, rgba(238, 238, 238, 1) 85%, rgba(170, 170, 170, 1) 100%);
+          background: -o-linear-gradient(left, rgba(170, 170, 170, 1) 0, rgba(238, 238, 238, 1) 15%, rgba(238, 238, 238, 1) 85%, rgba(170, 170, 170, 1) 100%);
+          background: -ms-linear-gradient(left, rgba(170, 170, 170, 1) 0, rgba(238, 238, 238, 1) 15%, rgba(238, 238, 238, 1) 85%, rgba(170, 170, 170, 1) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eeeeee', endColorstr='#eeeeee', GradientType=1);
+          background: linear-gradient(left, rgba(170, 170, 170, 1) 0, rgba(238, 238, 238, 1) 15%, rgba(238, 238, 238, 1) 85%, rgba(170, 170, 170, 1) 100%);
+      }
+      body, header {
+          min-width: 890px;
+      }
+
+      /*************************************************************************
+       * Scrollbar
+       */
+      ::-webkit-scrollbar {
+          margin-right: 5px;
+          background-color: #eee;
+          width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+          -webit-box-shadow: 0 0 2px #ccc;
+          box-shadow: 0 0 2px #ccc;
+      }
+      ::-webkit-scrollbar-thumb {
+          border: 1px #eee solid;
+          border-radius: 4px;
+          background: #777;
+          -webit-box-shadow: 0 0 8px #555 inset;
+          box-shadow: 0 0 8px #555 inset;
+          -webit-transition: all .3s ease-out;
+          transition: all .3s ease-out;
+      }
+      ::-webkit-scrollbar-thumb:window-inactive {
+          background: #bbb;
+          box-shadow: 0 0 8px #999 inset;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+          background: #999;
+      }
+
+      /*************************************************************************
+       * Web fonts
+       */
+       .wf-loading h1,
+       .wf-loading h2,
+       .wf-loading h3,
+       .wf-loading h4,
+       .wf-loading p,
+       .wf-loading a,
+       .wf-loading span,
+       .wf-loading header {
+          visibility: hidden;
+      }
+
+      /*************************************************************************
+       * Headers
+       */
+      ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+      h1, h2, h3 {
+          margin: 0;
+          font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+          line-height: .9em;
+          letter-spacing: .02em;
+          text-transform: uppercase;
+      }
+      h1 {
+          display: table;
+          float: left;
+          height: 100%;
+          padding: 0 20px 0 30px;
+          font-size: 76px;
+      }
+      h1 a {
+          display: table-cell;
+          vertical-align: middle;
+          color: #fff;
+          text-decoration: none;
+          border: none;
+          -webkit-transition: 0;
+          -moz-transition: none;
+          -o-transition: 0;
+          transition: 0;
+      }
+      h1 a:hover {
+          color: #fff;
+      }
+      h2 {
+          font-size: 36px;
+          color: #222;
+      }
+      #main {
+          position: relative;
+      }
+      header {
+          display: block;
+          position: fixed;
+          width: 100%;
+          height: 110px;
+          left: 0;
+          top: 0;
+          z-index: 100;
+          background: #222;
+          color: #fff;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+      }
+      header:after {
+          content: "";
+          position: absolute;
+          bottom: -20px;
+          left: 0;
+          width: 100%;
+          height: 20px;
+          z-index: 101;
+          -webkit-box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+          -moz-box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+      }
+      header nav {
+          float: right;
+      }
+      header nav li {
+          display: block;
+          float: left;
+          border: 5px solid #000;
+          background: #f00;
+          text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+          background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 70, from(rgba(255, 255, 255, 0.2)), to(rgba(255, 255, 255, 0.0)));
+          background-image: -moz-radial-gradient(50% 50% 90deg, ellipse closest-side, rgba(255, 255, 255, 0.2) 0, rgba(255, 255, 255, 0.0) 100%);
+          -webkit-transition: border-color .15s linear;
+          -moz-transition: border-color .15s linear;
+          -o-transition: border-color .15s linear;
+          transition: border-color .15s linear;
+      }
+      header nav a {
+          display: table;
+          height: 100px;
+          border: none;
+          outline: none;
+          color: #fff;
+          color: rgba(255, 255, 255, 0.9);
+          text-transform: uppercase;
+          font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+          font-size: 36px;
+          -webkit-transition: 0;
+          -moz-transition: none;
+          -o-transition: 0;
+          transition: 0;
+      }
+      header nav a:hover {
+          color: #fff;
+          color: rgba(255, 255, 255, 0.9);
+      }
+      header nav a span {
+          padding: 0 30px 0 30px;
+          display: table-cell;
+          vertical-align: middle;
+      }
+      header nav li.projects {
+          background-color: #47bfa2;
+          border-color: #47bfa2;
+      }
+      header nav li.projects:hover, body.projects header nav ul li.projects {
+          border-color: #389780;
+      }
+      header nav li.experiments {
+          background-color: #d86654;
+          border-color: #d86654;
+      }
+      header nav li.experiments:hover, body.experiments header nav ul li.experiments {
+          border-color: #ab5142;
+      }
+      header nav li.thoughts {
+          background-color: #92c452;
+          border-color: #92c452;
+      }
+      header nav li.thoughts:hover, body.thoughts header nav ul li.thoughts {
+          border-color: #729a3e;
+      }
+      header nav li.about {
+          background-color: #5686bb;
+          border-color: #5686bb;
+      }
+      header nav li.about:hover, body.about header nav ul li.about {
+          border-color: #3e6188;
+      }
+
+
+      /*************************************************************************
+       * Article
+       */
+      article {
+          display: block;
+          float: left;
+          margin: 10px 5px;
+          padding: 15px;
+          width: 330px;
+          background: #fff;
+          border-radius: 4px;
+          border: 1px #ddd solid;
+          text-align: justify;
+      }
+      article:before, article:after {
+          content: "";
+          position: absolute;
+          bottom: 18px;
+          left: 10px;
+          width: 80%;
+          height: 20%;
+          max-width: 300px;
+          z-index: -2;
+          -webkit-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+          -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+          box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
+          -webkit-transform: rotate(-2deg);
+          -moz-transform: rotate(-2deg);
+          -ms-transform: rotate(-2deg);
+          -o-transform: rotate(-2deg);
+          transform: rotate(-2deg);
+      }
+      article:after {
+          left: auto;
+          right: 10px;
+          -webkit-transform: rotate(2deg);
+          -moz-transform: rotate(2deg);
+          -ms-transform: rotate(2deg);
+          -o-transform: rotate(2deg);
+          transform: rotate(2deg);
+      }
+      article h2 {
+          display: inline-block;
+          margin-bottom: 10px;
+          margin-right: 10%;
+          line-height: 1em;
+          text-align: left;
+          cursor: pointer;
+      }
+      article p {
+          margin: 20px 0;
+          word-spacing: -0.1em;
+      }
+      article>h3, article div:not(#comments)>h3 {
+          font-family: 'Open Sans', Times, 'Times New Roman', serif;
+          font-size: 16px;
+          font-weight: bold;
+          text-transform: none;
+      }
+      article code {
+          background: #eee;
+          font-family: monospace;
+          font-size: 13px;
+          word-wrap: break-word;
+      }
+      article pre {
+          width: 100%;
+          background: #eee;
+          margin: 20px 0;
+          border-radius: 2px;
+          padding: 2px;
+          border: 1px solid #ccc;
+      }
+      article pre code {
+          background: none;
+      }
+      article p pre {
+          margin: 10px 0;
+      }
+      article>footer {
+          position: relative;
+          padding: 0;
+          text-align: left;
+          display: block;
+      }
+      article>footer>a, article>footer>time {
+          font-size: 12px;
+          color: #999;
+          margin: 3px 0 2px 0;
+          display: block;
+      }
+      article div.launch-dock+footer {
+          position: absolute;
+          left: 15px;
+          bottom: 15px;
+      }
+      article p+h3 {
+          margin-top: 20px;
+      }
+      article h3+p {
+          margin-top: 10px;
+      }
+      article h2+p, article h2+div p:first-child {
+          margin-top: 0;
+      }
+      article>ul, article>ol {
+          padding-left: 20px;
+          margin-top: 5px;
+          margin-bottom: 10px;
+      }
+      article>ul {
+          list-style: disc;
+          line-height: 1.4em;
+      }
+      article li {
+          margin: 5px 0;
+      }
+      article dl {
+          margin-top: 0;
+      }
+      article dl dt {
+          display: inline;
+          margin: 0;
+      }
+      article dl dd {
+          margin: 0 0 25px 0;
+          line-height: 1.5em;
+      }
+      article ol {
+          list-style: decimal;
+      }
+      article strong, article em {
+          font-weight: bold;
+      }
+      article.selected {
+          z-index: 111;
+      }
+      .overlay article.selected {
+          border-color: rgba(0, 0, 0, 0);
+      }
+      article.selected:before, article.selected:after {
+          display: none;
+      }
+      .touch-device article:before, .touch-device article:after {
+          display: none;
+      }
+      article .roll {
+          display: inline-block;
+          overflow: hidden;
+          vertical-align: top;
+          -webkit-perspective: 400px;
+          -moz-perspective: 400px;
+          -o-perspective: 400px;
+          perspective: 400px;
+      }
+      article .roll span {
+          display: block;
+          position: relative;
+          padding: 0 2px;
+          -webkit-transition: all 300ms ease;
+          -moz-transition: all 300ms ease;
+          -o-transition: all 300ms ease;
+          transition: all 300ms ease;
+          -webkit-transform-origin: 50% 0;
+          -moz-transform-origin: 50% 0;
+          -o-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+      }
+      article .roll:hover span {
+          background: #ccc;
+          -webkit-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+          -moz-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+          -o-transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+          transform: translate3d(0px, 0px, -30px) rotateX(90deg);
+      }
+      article .roll span:after {
+          content: attr(data-title);
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          padding: 0 2px;
+          color: #fff;
+          background: #283E72;
+          -webkit-transform-origin: 50% 0;
+          -moz-transform-origin: 50% 0;
+          -o-transform-origin: 50% 0;
+          transform-origin: 50% 0;
+          -webkit-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+          -moz-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+          -o-transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+          transform: translate3d(0px, 105%, 0px) rotateX(-90deg);
+      }
+      article .actions {
+          position: absolute;
+          right: 0;
+          top: 0;
+      }
+      article .actions>a {
+          float: left;
+          margin: 8px;
+          border-bottom: none;
+      }
+      article .actions .comment {
+          background: url(/assets/images/speech-bubble.png) top left no-repeat;
+          width: 40px;
+          height: 32px;
+          color: #fff;
+          text-align: center;
+          border: none;
+          padding-top: 6px;
+          opacity: .4;
+          font-weight: bold;
+          font-size: 18px;
+      }
+      article.experiments .actions .comment {
+          background-image: url(/assets/images/speech-bubble-experiments.png);
+      }
+      article.projects .actions .comment {
+          background-image: url(/assets/images/speech-bubble-projects.png);
+      }
+      article.about .actions .comment {
+          background-image: url(/assets/images/speech-bubble-about.png);
+      }
+      article:hover .actions .comment {
+          opacity: .8;
+      }
+      article:hover .actions .comment:hover, article.selected .actions .comment {
+          opacity: 1.0;
+      }
+      article .image-link, article .image-wrapper {
+          border: 5px #ddd solid;
+          margin: 5px 0;
+          display: inline-block;
+          line-height: 0;
+          -webkit-transition: border-color .2s ease-out;
+          -moz-transition: border-color .2s ease-out;
+          -o-transition: border-color .2s ease-out;
+          transition: border-color .2s ease-out;
+      }
+      article .image-link img {
+          border: 0;
+          outline: 0;
+      }
+      article .image-link:hover {
+          border-color: #aaa;
+      }
+      article.thoughts .image-link:hover {
+          border-color: #9db281;
+      }
+      article.experiments .image-link:hover {
+          border-color: #D86654;
+      }
+      article.projects .image-link:hover {
+          border-color: #47BFA2;
+      }
+      article.projects .image-link.disabled:hover {
+          border-color: #ddd;
+      }
+      article .image-link {
+          overflow: hidden;
+          position: relative;
+      }
+      article .image-link.caption p, article .image-link.caption img {
+          -webkit-transition: all .2s ease-out;
+          -moz-transition: all .2s ease-out;
+          -o-transition: all .2s ease-out;
+          transition: all .2s ease-out;
+      }
+      article .image-link.caption p {
+          display: block;
+          position: absolute;
+          width: 100%;
+          height: 20px;
+          text-align: center;
+          letter-spacing: .03em;
+          margin: 0;
+          padding: 4px 0 8px 0;
+          bottom: -33px;
+          font-size: 15px;
+          text-indent: 10px;
+          background: #111;
+          color: #fff;
+          -webkit-box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1) inset;
+          -moz-box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1) inset;
+          box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1) inset;
+          -webkit-transition: bottom, background 300ms, 300ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+          -moz-transition: bottom, background 300ms, 300ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+          -o-transition: bottom, background 300ms, 300ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+          transition: bottom, background 300ms, 300ms cubic-bezier(0.260, 0.860, 0.440, 0.985);
+      }
+      article .image-link.caption:hover p {
+          bottom: 0;
+      }
+      article.thoughts .image-link.caption:hover p {
+          background: #2d3227;
+      }
+      article.experiments .image-link.caption:hover p {
+          background: #302220;
+      }
+      article.projects .image-link.caption:hover p {
+          background: #173a32;
+      }
+      article.about .image-link.caption:hover p {
+          background: #222;
+      }
+      article .image-link.caption:hover img {
+          margin-top: -10px;
+          margin-bottom: 10px;
+      }
+      article .image-link.caption.static:not(:hover) p {
+          visibility: visible;
+          bottom: 0;
+          background: #777;
+      }
+      article .image-link.caption.static:hover img {
+          margin-top: 0;
+          margin-bottom: 0;
+      }
+      article .launch-dock {
+          text-align: right;
+      }
+      article .launch-button {
+          display: inline-block;
+          margin: 6px 0 0 6px;
+          padding: 5px 8px 6px 8px;
+          font-size: 15px;
+          border: 1px solid #ddd;
+          border-top: 1px solid #eee;
+          border-radius: 4px;
+          background: #ebebeb;
+      }
+      article .launch-button.disabled {
+          cursor: default;
+          opacity: .6;
+      }
+      article .launch-button:hover {
+          background: #f2f2f2;
+          -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+          -moz-box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+      }
+      article .launch-button:active {
+          -webkit-box-shadow: none;
+          -moz-box-shadow: none;
+          box-shadow: none;
+      }
+      article .two-columns {
+          margin: 20px 0;
+          -webkit-column-count: 2;
+          -webkit-column-gap: 2em;
+          -moz-column-count: 2;
+          -moz-column-gap: 2em;
+          -o-column-count: 2;
+          -o-column-gap: 2em;
+          column-count: 2;
+          column-gap: 2em;
+      }
+      article .two-columns {
+          margin-top: 0;
+      }
+      article .image-link+.two-columns {
+          margin-top: 20px;
+      }
+      article .two-columns p {
+          margin: 0 0 20px 0;
+      }
+      article .three-columns {
+          -webkit-column-count: 3;
+          -webkit-column-gap: 2em;
+          -moz-column-count: 3;
+          -moz-column-gap: 2em;
+          -o-column-count: 3;
+          -o-column-gap: 2em;
+          column-count: 3;
+          column-gap: 2em;
+      }
+      article .email-address li {
+          display: inline;
+          list-style: none;
+      }
+      article .credit-employer {
+          font-style: italic;
+          background: #f8f8f8;
+          display: inline-block;
+          margin-bottom: 20px;
+      }
+      article.double {
+          width: 705px;
+      }
+
+
+
+      .box
+      {
+          padding-top: 50px;
+          padding-bottom: 50px;
+          padding-left: 100px;
+          width: 250px;
+          height: 250px;
+      }
+
+      .yellow_gradient
+      {
+          background: -moz-linear-gradient(top,  #FFDB4D,  #EABB00);
+          background: -webkit-gradient(linear, left top, left bottom, from(#FFDB4D), to(#EABB00));
+          filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=’#FFDB4D’, endColorstr=’#EABB00′);
+      }
+
+      .box_shadow_bottom
+      {
+          -moz-box-shadow: 0px 10px 5px #9C9C9C;
+          -webkit-box-shadow: 0px 10px 5px #9C9C9C;
+          box-shadow: 0px 10px 5px #9C9C9C;
+          position: relative;
+      }
+
+      /*************************************************************************
+       * Warped shadow using an 'invisible' span
+       */
+      .box_shadow_bottom span.warp
+      {
+          /*****************************
+           * dimensions
+           */
+          width: 100%;
+          height: 13px;
+
+          /*****************************
+           * position
+           */
+          position: absolute;
+          bottom: -26px; /* ~equal to the height + shadow y offset + shadow blur radius */
+          right: 0px;
+
+          /*****************************
+           * border shadow
+           */
+          -moz-box-shadow: 0px -10px 5px #fff;      /* Firefox */
+          -webkit-box-shadow: 0px -10px 5px #fff;   /* Safari, Chrome */
+          box-shadow: 0px -10px 5px #fff;           /* CSS3 */
+
+          /*****************************
+           * border radius
+           */
+          -moz-border-radius: 50% / 20px;           /* Firefox */
+          -webkit-border-radius: 400px 20px;        /* Safari, Chrome */
+          border-radius: 50% / 20px;                /* CSS3 */
+                                                    /* < IE8: http://dimox.net/cross-browser-border-radius-rounded-corners/ */
+      }
+    </style>
+
+    <script type="text/javascript">
+      WebFontConfig = {
+        google: { families: [ 'Open+Sans:700italic,400,300,700:latin' ] }
+      };
+      (function() {
+        var wf = document.createElement('script');
+        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+          '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+        wf.type = 'text/javascript';
+        wf.async = 'true';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wf, s);
+        })();
+    </script>
+  </head>
+
+  <body>
+    <div class="box yellow_gradient box_shadow_bottom"><span class="warp"></span>
+    </div>
+<article id='2011' class='thoughts double'><aside class='actions'><a class='comment' href='/thoughts/2011'>2</a></aside><h2>Recap 2011</h2>
+<div class="two-columns">
+  <p>
+    It's that time of the year again! In late 2010, having spent five great years working at 
+    <a href="http://www.f-i.com">Fi</a>, I was determined to change up my professional life. After 
+    interviewing with <a href="http://www.qwiki.com">Qwiki</a> and accepting the position of Lead 
+    Interactive Developer it was decided; I was moving to San Francisco! It took a good few months of
+    hard work to sort out all of the practicalities but it was definitely worth it now that I'm here.
+  </p>
+  <p>
+    Fortunately I've still been able to keep this site updated and worked on a variety of projects 
+    and experiments throughout the year. 
+  </p>
+  <p>
+    The first project to see the light of day was <a href="http://hakim.se/experiments/html5/sketch/">Sketch</a>, 
+    a drawing tool that mimics the style of old cartoons. It was refreshing to build something that allows 
+    others to be creative. Now – almost a year later – over 78,000 sketches have been saved.
+  </p>
+  <p>
+    Sketch was followed by a short freelance project which involved building an interactive and animated 
+    logo for a Canadian media production company called Meru. Try it out on their site;
+    <a href="http://meru.ca/">http://meru.ca/</a>.
+  </p>
+  <p>
+    Next I stumbled into the land of CSS3 3D transforms and ended up trying them out on two projects;
+    <a href="http://hakim.se/experiments/css/holobox/">Holobox</a> and CSS3 3D Slideshow (later renamed 
+    <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>). A few weeks ago, in mid December, I resumed 
+    my CSS 3D pursuits by creating a <a href="http://hakim.se/thoughts/rolling-links">rolling effect</a> 
+    for links and building a <a href="http://hakim.se/experiments/domtree">Christmas tree</a> out of form elements.
+  </p>
+  <p>
+    Being far from tired of working with <code>&lt;canvas&gt;</code> I also created a new game called 
+    <a href="http://hakim.se/experiments/html5/coil/">Coil</a>, it's similar in design to <a href="http://sinuousgame.com">Sinuous</a> 
+    but adds a touch of WebGL and perhaps an element of stress to the gameplay. Shortly thereafter I worked on a 
+    tool called <a href="http://textify.it">Textify.it</a> which allows you to recreate images using thousands
+    of letters of text. Using Phonegap, I was able to easily port <a href="http://itunes.apple.com/app/textify-it/id441057755">Textify.it to iOS</a>.
+  </p>
+  <p>
+    It's been really encouraging to see that there's still a lot of activity on <a href="http://sinuousgame.com">sinuousgame.com</a>
+    even though it's been out since 2010 – meaning ancient, in internet-time. In the past year it saw more than 2,000,000 visits.
+  </p>
+  <p>
+    Now the new year is approaching and with it new adventures. 2012 will start with relocating to NYC and 
+    opening up Qwiki's new office. Can't wait to see where it goes from there!
+  </p>
+</div><footer><time datetime='2011-12-31'>2011-12-31</time><a class='footer-comment' href='/thoughts/2011'>2 comments</a></footer></article>
+
+<article id='experiments-intro' class='experiments single' data-exclusive='true'><aside class='actions'><a class='comment' href='/experiments/experiments-intro'>7</a></aside><h2>Experiments</h2>
+<p>
+  This is my creative lab and interactive playground. It's focused on the exploration of
+  interaction, visual effects and technologies. 
+</p>
+
+<div class="sharing social-component">
+  <div class="facebook-button">
+
+  </div>
+  <div class="plusone-button">
+    <div id="experiments-plus-one"></div>
+  </div>
+  <div class="tweet-button">
+    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hakim.se/experiments" data-text="The HTML5 Experiments of Hakim El Hattab (@hakimel)." data-count="vertical" data-related="hakimel"></a>
+  </div>
+  <div class="flattr-button">
+    <script type="text/javascript">
+    /* <![CDATA[ */
+        (function() {
+        if( window.jQuery !== undefined ) $('script[src="http://api.flattr.com/js/0.6/load.js?mode=auto"]').remove();
+            var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+            t.parentNode.insertBefore(s, t);
+        })();
+    /* ]]> */
+    </script>
+    <a class="FlattrButton" style="display:none;" rev="flattr;button:default;" href="http://hakim.se/experiments/"></a>
+  </div>
+
+  <script>
+    setTimeout( function() {
+      if( window.jQuery && $( '.sharing.social-component' && window.HE ).length ) {
+        HE.social.loadTwitterWidgets();
+        HE.social.loadFacebookLike();
+        HE.social.loadGooglePlusOne();
+      }
+    }, 500 );
+  </script>
+</div>
+
+</article>
+
+</body>
+</html>
