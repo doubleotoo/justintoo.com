@@ -186,6 +186,7 @@ header nav a {
     color: #fff;
     color: rgba(255, 255, 255, 0.9);
     text-transform: uppercase;
+    text-decoration: none;
     font-family: 'League Gothic', Arial, Helvetica, sans-serif;
     font-size: 36px;
     -webkit-transition: 0;
