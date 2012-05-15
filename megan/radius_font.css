@@ -1,0 +1,365 @@
+/*------------------------------------------------------------------
+[CSS3 Stylesheet]
+
+Project: CSS3 Design Contest
+Last change: 18.06.2010 [created blank stylesheet, vf]
+Designed by:
+Works in browsers: FF 3.5+, Opera 10.5+, Safari 4+, Google Chrome 4.0+, IE 9+
+-------------------------------------------------------------------*/
+
+.lettera{
+	width: 100px;
+	height: 100px;
+	-moz-border-radius-topleft: 30px;
+	-webkit-border-top-left-radius: 30px;
+	-moz-border-radius-topright: 30px;
+	-webkit-border-top-right-radius: 30px;
+	-moz-border-radius-bottomleft: 30px;
+	-webkit-border-bottom-left-radius: 30px;
+	background: url(images/bowl.png) center no-repeat, url(images/bg-fuzz.png) center no-repeat;
+	box-shadow: 10px 10px 5px #333;
+}
+
+.letterbBottom{
+	width: 100px;
+	height: 60px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	background: url(images/bowl.png) center no-repeat, url(images/bg-fuzz-b.png) bottom no-repeat;
+}
+
+.letterbTop {
+	width: 100px;
+	height: 40px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	background: url(images/bowl.png) center no-repeat, url(images/bg-fuzz-b.png) top no-repeat;
+}
+
+.letterContainer{
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.letterBowl{
+	width: 10px;
+	height: 10px;
+	opacity: 0.5;
+	background-color: #FFF;
+	margin: 20px 20px 20px 20px;
+	margin-top: 25px;
+}
+
+.letterc{
+	width: 100px;
+	height: 100px;
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-top-left-radius: 20px;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	background: url(images/in.png) center right no-repeat, url(images/bg-fuzz-g.png) center no-repeat;
+}
+
+.letterd{
+	width: 100px;
+	height: 100px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	background: url(images/bowl.png) center no-repeat, url(images/bg-fuzz.png) center no-repeat;
+}
+
+.lettereBottom{
+	width: 100px;
+	height: 50px;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	background: url(images/in.png) top right no-repeat, url(images/bg-fuzz-g.png) bottom no-repeat;
+}
+
+.lettereTop {
+	width: 100px;
+	height: 50px;
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-top-left-radius: 20px;
+	background: url(images/in.png) center right no-repeat, url(images/bg-fuzz-g.png) top no-repeat;
+}
+
+.letterfTop{
+	width: 100px;
+	height: 60px;
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-top-left-radius: 20px;
+	background: url(images/in.png) right no-repeat, url(images/bg-fuzz.png) top no-repeat;
+}
+
+.letterfBottom {
+	width: 85px;
+	height: 40px;
+	background: url(images/bg-fuzz.png) bottom no-repeat;
+}
+
+.lettergTop{
+	width: 100px;
+	height: 60px;
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-top-left-radius: 20px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	background: url(images/in.png) right no-repeat, url(images/bg-fuzz-b.png) top no-repeat;
+}
+
+.lettergBottom {
+	width: 100px;
+	height: 40px;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	background: url(images/bg-fuzz-b.png) bottom no-repeat;
+}
+
+.letterhTop{
+	width: 100px;
+	height: 60px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	background: url(images/in.png) center top no-repeat, url(images/bg-fuzz-g.png) top no-repeat;
+}
+
+.letterhBottom {
+	width: 100px;
+	height: 40px;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	background: url(images/in.png) center bottom no-repeat, url(images/bg-fuzz-g.png) bottom no-repeat;
+}
+
+
+.letteri{
+	width: 100px;
+	height: 100px;
+	background: url(images/in.png) center left no-repeat, url(images/in.png) center right no-repeat, url(images/bg-fuzz.png) center no-repeat;
+}
+
+
+.letterjTop{
+	width: 100px;
+	height: 55px;
+	background: url(images/in.png) left bottom no-repeat, url(images/in.png) right bottom no-repeat, url(images/bg-fuzz-b.png) top no-repeat;
+}
+
+.letterjBottom {
+	width: 90px;
+	height: 45px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	background: url(images/bg-fuzz-b.png) bottom no-repeat;
+}
+
+.letterkTop{
+	width: 100px;
+	height: 55px;
+	background: url(images/in.png) right bottom no-repeat, url(images/in.png) top center no-repeat, url(images/bg-fuzz.png) top no-repeat;
+}
+
+.letterkBottom {
+	width: 100px;
+	height: 45px;
+	background:  url(images/in.png) bottom center no-repeat, url(images/bg-fuzz.png) bottom no-repeat;
+}
+
+
+.letterLTop{
+	width: 85px;
+	height: 55px;
+	background: url(images/bg-fuzz-g.png) top no-repeat;
+}
+
+.letterLBottom {
+	width: 100px;
+	height: 45px;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	background: url(images/bg-fuzz-g.png) bottom no-repeat;
+}
+
+.letterM{
+	width: 50px;
+	height: 100px;
+	float: left;
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-top-left-radius: 20px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	background: url(images/bg-fuzz-b.png) center no-repeat;
+}
+
+.letterN{
+	width: 100px;
+	height: 100px;
+	-moz-border-radius-topleft: 30px;
+	-webkit-border-top-left-radius: 30px;
+	-moz-border-radius-topright: 30px;
+	-webkit-border-top-right-radius: 30px;
+	background: url(images/in.png) center bottom no-repeat,  url(images/bg-fuzz.png) center no-repeat;
+}
+
+.letterO{
+	width: 100px;
+	height: 100px;
+	-moz-border-radius-topleft: 40px;
+	-webkit-border-top-left-radius: 40px;
+	-moz-border-radius-topright: 40px;
+	-webkit-border-top-right-radius: 40px;
+	-moz-border-radius-bottomright: 40px;
+	-webkit-border-bottom-right-radius: 40px;
+	-moz-border-radius-bottomleft: 40px;
+	-webkit-border-bottom-left-radius: 40px;
+	background: url(images/bowl.png) center center no-repeat, url(images/bg-fuzz-g.png) center no-repeat;
+}
+
+.letterPTop{
+	width: 100px;
+	height: 55px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	background: url(images/bowl.png) center center no-repeat, url(images/bg-fuzz.png) top no-repeat;
+}
+
+.letterPBottom {
+	width: 85px;
+	height: 45px;
+	background: url(images/bg-fuzz.png) bottom no-repeat;
+}
+
+.letterQTop{
+	width: 90px;
+	height: 50px;
+	-moz-border-radius-topleft: 40px;
+	-webkit-border-top-left-radius: 40px;
+	-moz-border-radius-topright: 40px;
+	-webkit-border-top-right-radius: 40px;
+	background: url(images/bowl.png) center bottom no-repeat, url(images/bg-fuzz-g.png) top no-repeat;
+}
+.letterQBottom{
+	width: 100px;
+	height: 50px;
+	-moz-border-radius-bottomleft: 40px;
+	-webkit-border-bottom-left-radius: 40px;
+	background: url(images/bg-fuzz-g.png) bottom no-repeat;
+}
+
+.letterRTop{
+	width: 100px;
+	height: 60px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	background: url(images/bowl.png) center no-repeat, url(images/bg-fuzz-b.png) top no-repeat;
+}
+
+.letterRBottom {
+	width: 100px;
+	height: 40px;
+	background: url(images/in.png) bottom center no-repeat, url(images/bg-fuzz-b.png) bottom no-repeat;
+}
+
+.letterSTop {
+	width: 100px;
+	height: 45px;
+	-moz-border-radius-topleft: 30px;
+	-webkit-border-top-left-radius: 30px;
+	background: url(images/in.png) right bottom no-repeat, url(images/bg-fuzz.png) top no-repeat;
+}
+
+.letterSBottom {
+	width: 100px;
+	height: 55px;
+	-moz-border-radius-bottomright: 30px;
+	-webkit-border-bottom-right-radius: 30px;
+	background: url(images/in.png) left center no-repeat, url(images/bg-fuzz.png) bottom no-repeat;
+}
+
+.letterTTop {
+	width: 100px;
+	height: 55px;
+	background: url(images/bg-fuzz-b.png) top no-repeat;
+}
+
+.letterTBottom {
+	margin: 0 auto;
+	width: 80px;
+	height: 45px;
+	background: url(images/bg-fuzz-b.png) bottom no-repeat;
+}
+
+.letterU {
+	width: 100px;
+	height: 100px;
+	background: url(images/in.png) top center no-repeat, url(images/bg-fuzz.png) center no-repeat;
+	-moz-border-radius-bottomright: 50px;
+	-webkit-border-bottom-right-radius: 50px;
+	-moz-border-radius-bottomleft: 50px;
+	-webkit-border-bottom-left-radius: 50px;
+}
+
+.letterV {
+	width: 100px;
+	height: 100px;
+	background: url(images/in.png) top center no-repeat, url(images/in.png) bottom right no-repeat, url(images/in.png) bottom left no-repeat, url(images/bg-fuzz-g.png) center no-repeat;
+}
+
+.letterW{
+	width: 50px;
+	height: 100px;
+	float: left;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	background: url(images/bg-fuzz.png) center no-repeat;
+}
+
+.letterX {
+	width: 100px;
+	height: 100px;
+	background:  url(images/in.png) bottom center no-repeat, url(images/in.png) top center no-repeat, url(images/in.png) right center no-repeat, url(images/in.png) left center no-repeat, url(images/bg-fuzz-g.png) center no-repeat;
+}
+
+.letterYTop {
+	width: 100px;
+	height: 55px;
+	background: url(images/in.png) top center no-repeat, url(images/bg-fuzz-b.png) top no-repeat;
+}
+
+.letterYBottom{
+	margin: 0 auto;
+	width: 80px;
+	height: 45px;
+	background: url(images/bg-fuzz-b.png) bottom no-repeat;
+}
+
+.letterZTop {
+	width: 90px;
+	height: 50px;
+	background: url(images/in.png) bottom left no-repeat, url(images/bg-fuzz.png) top no-repeat;
+}
+
+.letterZBottom{
+	margin-left: 10px;
+	width: 90px;
+	height: 50px;
+	background: url(images/in.png) top right no-repeat, url(images/bg-fuzz.png) bottom no-repeat;
+}
