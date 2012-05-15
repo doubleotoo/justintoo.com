@@ -7,9 +7,11 @@
           padding: 0;
           margin: 0;
 
-          font-family: 'Open Sans', Times, 'Times New Roman', serif;
+          /*font-family: Baskerville, 'Open Sans', Times, 'Times New Roman', serif;*/
+          font-family: Baskerville, "Hoefler Text", Garamond, "Times New Roman", serif;
           line-height: 150%;
-          font-size: 12pt;
+          font-size: 18px;
+          /*font-size: 12pt;*/
 
 
           background: #fff;
@@ -606,6 +608,27 @@
           background: -webkit-gradient(linear, left top, left bottom, from(#FFDB4D), to(#EABB00));
           filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=’#FFDB4D’, endColorstr=’#EABB00′);
       }
+
+h2{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    line-height: 20px;
+    padding: 10px 0px;
+    color: #626a6f;
+    border-bottom: 1px solid rgba(126, 126, 126, 0.1);
+    box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.4);
+}
+.p{
+    font-size: 18px;
+    line-height: 24px;
+    text-align: justify;
+    position: relative;
+    padding: 10px 0px;
+    text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.8);
+}
+.p:first-letter{
+    font-size: 28px;
+}
     </style>
 
     <script type="text/javascript">
@@ -708,11 +731,11 @@
        $("article > div").hover(
            function(){
               $(this).fadeTo("slow", 1.0);
-               $("article > h2").fadeTo("slow", 0.4);
+               $("h2").fadeTo("slow", 0.4);
             },
            function(){
               $(this).fadeTo("slow", 0.6);
-              $("article > h2").fadeTo("slow", 1.0);
+              $("h2").fadeTo("slow", 1.0);
             });
      });
    </script>
