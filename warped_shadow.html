@@ -137,6 +137,9 @@
           top: 0;
           z-index: 100;
           background: #222;
+          background: -moz-linear-gradient(top,rgba(101, 201, 234, 1) 0,rgba(91, 190, 205, 1) 100%)!important;
+          background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(101, 201, 234, 1)), color-stop(100%, rgba(91, 190, 205, 1)));
+
           color: #fff;
           border-bottom: 1px solid rgba(255, 255, 255, 0.5);
       }
@@ -221,45 +224,17 @@
           border-radius: 4px;
           border: 1px #ddd solid;
           text-align: justify;
-
-          -moz-box-shadow: 0px 10px 5px #9C9C9C;
-          -webkit-box-shadow: 0px 10px 5px #9C9C9C;
-          box-shadow: 0px 10px 5px #9C9C9C;
-          position: relative;
       }
-      /*************************************************************************
-       * Warped shadow using an 'invisible' span
-       */
-      article span.warp
-      {
-          /*****************************
-           * dimensions
-           */
-          width: 100%;
-          height: 13px;
 
-          /*****************************
-           * position
-           */
-          position: absolute;
-          bottom: -26px; /* ~equal to the height + shadow y offset + shadow blur radius */
-          right: 0px;
+      .shadow_box {
+        box-shadow:         0px 10px 5px black;
+        -moz-box-shadow:    0px 10px 5px black;
+        -webkit-box-shadow: 0px 10px 50px -8px black;
 
-          /*****************************
-           * border shadow
-           */
-          -moz-box-shadow: 0px -10px 5px #fff;      /* Firefox */
-          -webkit-box-shadow: 0px -10px 5px #fff;   /* Safari, Chrome */
-          box-shadow: 0px -10px 5px #fff;           /* CSS3 */
-
-          /*****************************
-           * border radius
-           */
-          -moz-border-radius: 50% / 20px;           /* Firefox */
-          -webkit-border-radius: 400px 20px;        /* Safari, Chrome */
-          border-radius: 50% / 20px;                /* CSS3 */
-                                                    /* < IE8: http://dimox.net/cross-browser-border-radius-rounded-corners/ */
+        float:    left;
+        position: relative;
       }
+
       article h2 {
           display: inline-block;
           margin-bottom: 10px;
@@ -631,10 +606,6 @@
           background: -webkit-gradient(linear, left top, left bottom, from(#FFDB4D), to(#EABB00));
           filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr=’#FFDB4D’, endColorstr=’#EABB00′);
       }
-
-      .box_shadow_bottom
-      {
-      }
     </style>
 
     <script type="text/javascript">
@@ -667,101 +638,84 @@
       </header>
 
       <div style="margin: 2em; margin-top: 8em;">
-<article id='2011' class='thoughts double'><aside class='actions'><a class='comment' href='/thoughts/2011'>2</a></aside><h2>Recap 2011</h2>
-<div class="two-columns">
-  <p>
-    It's that time of the year again! In late 2010, having spent five great years working at 
-    <a href="http://www.f-i.com">Fi</a>, I was determined to change up my professional life. After 
-    interviewing with <a href="http://www.qwiki.com">Qwiki</a> and accepting the position of Lead 
-    Interactive Developer it was decided; I was moving to San Francisco! It took a good few months of
-    hard work to sort out all of the practicalities but it was definitely worth it now that I'm here.
-  </p>
-  <p>
-    Fortunately I've still been able to keep this site updated and worked on a variety of projects 
-    and experiments throughout the year. 
-  </p>
-  <p>
-    The first project to see the light of day was <a href="http://hakim.se/experiments/html5/sketch/">Sketch</a>, 
-    a drawing tool that mimics the style of old cartoons. It was refreshing to build something that allows 
-    others to be creative. Now – almost a year later – over 78,000 sketches have been saved.
-  </p>
-  <p>
-    Sketch was followed by a short freelance project which involved building an interactive and animated 
-    logo for a Canadian media production company called Meru. Try it out on their site;
-    <a href="http://meru.ca/">http://meru.ca/</a>.
-  </p>
-  <p>
-    Next I stumbled into the land of CSS3 3D transforms and ended up trying them out on two projects;
-    <a href="http://hakim.se/experiments/css/holobox/">Holobox</a> and CSS3 3D Slideshow (later renamed 
-    <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>). A few weeks ago, in mid December, I resumed 
-    my CSS 3D pursuits by creating a <a href="http://hakim.se/thoughts/rolling-links">rolling effect</a> 
-    for links and building a <a href="http://hakim.se/experiments/domtree">Christmas tree</a> out of form elements.
-  </p>
-  <p>
-    Being far from tired of working with <code>&lt;canvas&gt;</code> I also created a new game called 
-    <a href="http://hakim.se/experiments/html5/coil/">Coil</a>, it's similar in design to <a href="http://sinuousgame.com">Sinuous</a> 
-    but adds a touch of WebGL and perhaps an element of stress to the gameplay. Shortly thereafter I worked on a 
-    tool called <a href="http://textify.it">Textify.it</a> which allows you to recreate images using thousands
-    of letters of text. Using Phonegap, I was able to easily port <a href="http://itunes.apple.com/app/textify-it/id441057755">Textify.it to iOS</a>.
-  </p>
-  <p>
-    It's been really encouraging to see that there's still a lot of activity on <a href="http://sinuousgame.com">sinuousgame.com</a>
-    even though it's been out since 2010 – meaning ancient, in internet-time. In the past year it saw more than 2,000,000 visits.
-  </p>
-  <p>
-    Now the new year is approaching and with it new adventures. 2012 will start with relocating to NYC and 
-    opening up Qwiki's new office. Can't wait to see where it goes from there!
-  </p>
-</div><footer><time datetime='2011-12-31'>2011-12-31</time><a class='footer-comment' href='/thoughts/2011'>2 comments</a></footer>
-<span class="warp"></span>
-</article>
+        <article class="thoughts double shadow_box">
+          <aside class='actions'><a class='comment' href='/thoughts/2011'>2</a></aside>
+          <h2>Central Coast Double Century</h2>
+          <div class="two-columns">
+            <p>
+              It's that time of the year again! In late 2010, having spent five great years working at 
+              <a href="http://www.f-i.com">Fi</a>, I was determined to change up my professional life. After 
+              interviewing with <a href="http://www.qwiki.com">Qwiki</a> and accepting the position of Lead 
+              Interactive Developer it was decided; I was moving to San Francisco! It took a good few months of
+              hard work to sort out all of the practicalities but it was definitely worth it now that I'm here.
+            </p>
+            <p>
+              Fortunately I've still been able to keep this site updated and worked on a variety of projects 
+              and experiments throughout the year. 
+            </p>
+            <p>
+              The first project to see the light of day was <a href="http://hakim.se/experiments/html5/sketch/">Sketch</a>, 
+              a drawing tool that mimics the style of old cartoons. It was refreshing to build something that allows 
+              others to be creative. Now – almost a year later – over 78,000 sketches have been saved.
+            </p>
+            <p>
+              Sketch was followed by a short freelance project which involved building an interactive and animated 
+              logo for a Canadian media production company called Meru. Try it out on their site;
+              <a href="http://meru.ca/">http://meru.ca/</a>.
+            </p>
+            <p>
+              Next I stumbled into the land of CSS3 3D transforms and ended up trying them out on two projects;
+              <a href="http://hakim.se/experiments/css/holobox/">Holobox</a> and CSS3 3D Slideshow (later renamed 
+              <a href="http://lab.hakim.se/reveal-js/">reveal.js</a>). A few weeks ago, in mid December, I resumed 
+              my CSS 3D pursuits by creating a <a href="http://hakim.se/thoughts/rolling-links">rolling effect</a> 
+              for links and building a <a href="http://hakim.se/experiments/domtree">Christmas tree</a> out of form elements.
+            </p>
+            <p>
+              Being far from tired of working with <code>&lt;canvas&gt;</code> I also created a new game called 
+              <a href="http://hakim.se/experiments/html5/coil/">Coil</a>, it's similar in design to <a href="http://sinuousgame.com">Sinuous</a> 
+              but adds a touch of WebGL and perhaps an element of stress to the gameplay. Shortly thereafter I worked on a 
+              tool called <a href="http://textify.it">Textify.it</a> which allows you to recreate images using thousands
+              of letters of text. Using Phonegap, I was able to easily port <a href="http://itunes.apple.com/app/textify-it/id441057755">Textify.it to iOS</a>.
+            </p>
+            <p>
+              It's been really encouraging to see that there's still a lot of activity on <a href="http://sinuousgame.com">sinuousgame.com</a>
+              even though it's been out since 2010 – meaning ancient, in internet-time. In the past year it saw more than 2,000,000 visits.
+            </p>
+            <p>
+              Now the new year is approaching and with it new adventures. 2012 will start with relocating to NYC and 
+              opening up Qwiki's new office. Can't wait to see where it goes from there!
+            </p>
+          </div><footer><time datetime='2011-12-31'>2011-12-31</time><a class='footer-comment' href='/thoughts/2011'>2 comments</a></footer>
 
-<article id='experiments-intro' class='experiments single' data-exclusive='true'><aside class='actions'><a class='comment' href='/experiments/experiments-intro'>7</a></aside><h2>Experiments</h2>
-<p>
-  This is my creative lab and interactive playground. It's focused on the exploration of
-  interaction, visual effects and technologies. 
-</p>
+          <span class="warp"></span>
+        </article>
 
-<div class="sharing social-component">
-  <div class="facebook-button">
+        <article class="experiments single shadow_box" data-exclusive='true'>
+          <aside class='actions'><a class='comment' href='/experiments/experiments-intro'>7</a></aside>
+          <h2>Experiments</h2>
+          <div>
+            <p>Hello, world! This is Justin Too</p>
+          </div>
 
-  </div>
-  <div class="plusone-button">
-    <div id="experiments-plus-one"></div>
-  </div>
-  <div class="tweet-button">
-    <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://hakim.se/experiments" data-text="The HTML5 Experiments of Hakim El Hattab (@hakimel)." data-count="vertical" data-related="hakimel"></a>
-  </div>
-  <div class="flattr-button">
-    <script type="text/javascript">
-    /* <![CDATA[ */
-        (function() {
-        if( window.jQuery !== undefined ) $('script[src="http://api.flattr.com/js/0.6/load.js?mode=auto"]').remove();
-            var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
-            s.type = 'text/javascript';
-            s.async = true;
-            s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
-            t.parentNode.insertBefore(s, t);
-        })();
-    /* ]]> */
-    </script>
-    <a class="FlattrButton" style="display:none;" rev="flattr;button:default;" href="http://hakim.se/experiments/"></a>
-  </div>
-
-  <script>
-    setTimeout( function() {
-      if( window.jQuery && $( '.sharing.social-component' && window.HE ).length ) {
-        HE.social.loadTwitterWidgets();
-        HE.social.loadFacebookLike();
-        HE.social.loadGooglePlusOne();
-      }
-    }, 500 );
-  </script>
+          <span class="warp"></span>
+      </article>
 </div>
 
-<span class="warp"></span>
-</article>
-</div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+   <script>
+     $(document).ready(function(){
+       $("article > div").fadeTo("slow", 0.6);
+       $("article > div").hover(
+           function(){
+              $(this).fadeTo("slow", 1.0);
+               $("article > h2").fadeTo("slow", 0.4);
+            },
+           function(){
+              $(this).fadeTo("slow", 0.6);
+              $("article > h2").fadeTo("slow", 1.0);
+            });
+     });
+   </script>
 
 </body>
 </html>
