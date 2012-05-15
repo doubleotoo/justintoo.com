@@ -204,15 +204,9 @@
           background-color: #d86654;
           border-color: #d86654;
       }
-      header nav li.experiments:hover, body.experiments header nav ul li.experiments {
-          border-color: #ab5142;
-      }
       header nav li.thoughts {
           background-color: #92c452;
           border-color: #92c452;
-      }
-      header nav li.thoughts:hover, body.thoughts header nav ul li.thoughts {
-          border-color: #729a3e;
       }
 
       /*************************************************************************
@@ -221,7 +215,8 @@
       article {
           display: block;
           float: left;
-          margin: 10px 5px;
+          margin: 15px 10px;
+          /*margin: 10px 5px;*/
           padding: 15px;
           width: 330px;
           background: #fff;
@@ -664,7 +659,7 @@ h2{
         <div class="clearfix"></div>
       </header>
 
-      <div style="margin: 2em; margin-top: 8em;">
+      <div id="articles" style="margin: 2em; margin-top: 8em;">
         <article class="thoughts double shadow_box">
           <aside class='actions'><a class='comment' href='/thoughts/2011'>2</a></aside>
           <h2>Central Coast Double Century</h2>
@@ -725,36 +720,124 @@ h2{
           </div>
 
           <span class="warp"></span>
+        </article>
+
+<!-- DELETE -->
+        <article class="experiments single shadow_box" data-exclusive='true'>
+          <aside class='actions'><a class='comment' href='/experiments/experiments-intro'>7</a></aside>
+          <h2>Experiments</h2>
+          <div>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+          </div>
+          <span class="warp"></span>
+        </article>
+        <article class="experiments single shadow_box" data-exclusive='true'>
+          <aside class='actions'><a class='comment' href='/experiments/experiments-intro'>7</a></aside>
+          <h2>Experiments</h2>
+          <div>
+            <p>Hello, world! This is Justin Toojsdkfhkj4hrk4hrkjhw hdskh sdf hskjd hfsdjh ksdhf hs hskfdh kjsdhf sdhkj dshkfdjs hkdjhfs kjdfhs</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+            <p>Hello, world! This is Justin Too</p>
+          </div>
+          <span class="warp"></span>
+        </article>
+
+<!-- DELETE -->
+      <article class="corner-stamp">
+        <div class="letterContainer">
+          <div class="letterTTop"></div>
+          <div class="letterTBottom"></div>
+        </div>
+
+        <div class="letterContainer">
+          <div class="letterO"></div>
+        </div>
+
+        <div class="letterContainer">
+          <div class="letterO"></div>
+        </div>
       </article>
 </div>
 
-  <div class="letterContainer">
-    <div class="letterTTop"></div>
-    <div class="letterTBottom"></div>
-  </div>
-
-  <div class="letterContainer">
-    <div class="letterO"></div>
-  </div>
-
-  <div class="letterContainer">
-    <div class="letterO"></div>
-  </div>
-
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="javascript/jquery.masonry.min.js"></script>
+  <script>
+
+      // Masonry corner stamp modifications
+      $.Mason.prototype.resize = function() {
+        this._getColumns();
+        this._reLayout();
+      };
+
+      $.Mason.prototype._reLayout = function( callback ) {
+        var freeCols = this.cols;
+        if ( this.options.cornerStampSelector ) {
+          var $cornerStamp = this.element.find( this.options.cornerStampSelector ),
+              cornerStampX = $cornerStamp.offset().left - 
+                ( this.element.offset().left + this.offset.x + parseInt($cornerStamp.css('marginLeft')) );
+          freeCols = Math.floor( cornerStampX / this.columnWidth );
+        }
+        // reset columns
+        var i = this.cols;
+        this.colYs = [];
+        while (i--) {
+          this.colYs.push( this.offset.y );
+        }
+
+        for ( i = freeCols; i < this.cols; i++ ) {
+          this.colYs[i] = this.offset.y + $cornerStamp.outerHeight(true);
+        }
+
+        // apply layout logic to all bricks
+        this.layout( this.$bricks, callback );
+      };
+
+      $(function(){
+
+        $('#container').masonry({
+          itemSelector: '.box',
+          columnWidth: 100,
+          cornerStampSelector: '.corner-stamp'
+        });
+
+      });
+    </script>
+  <script src="javascript/jquery.imagesloaded.min.js"></script>
    <script>
      $(document).ready(function(){
        $("article > div").fadeTo("slow", 0.6);
        $("article > div").hover(
            function(){
-              $(this).fadeTo("slow", 1.0);
-               $("h2").fadeTo("slow", 0.4);
+              $(this).fadeTo("medium", 1.0);
             },
            function(){
-              $(this).fadeTo("slow", 0.6);
-              $("h2").fadeTo("slow", 1.0);
+              $(this).fadeTo("medium", 0.6);
             });
      });
+
+     var $articles = $('#articles');
+     $articles.imagesLoaded(function(){
+       $articles.masonry({
+         // options
+         itemSelector : 'article',
+         columnWidth : 1,
+         isAnimated: true,
+         cornerStampSelector: '.corner-stamp'
+       });
+     });
+
+
+
    </script>
 
 </body>
